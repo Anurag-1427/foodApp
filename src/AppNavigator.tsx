@@ -4,7 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import Splash from './screens/Splash';
 import Login from './screens/Login';
-// import Dashboard from './screens/Dashboard';
+import Dashboard from './screens/Dashboard';
 // import EditItem from './screens/EditItem';
 // import SelectLogin from './screens/user/SelectLogin';
 // import UserLogin from './screens/user/UserLogin';
@@ -30,12 +30,12 @@ const AppNavigator = () => {
           name="Login"
           options={{headerShown: false}}
         />
-        {/* <Stack.Screen
+        <Stack.Screen
           component={Dashboard}
           name="Dashboard"
           options={{headerShown: false}}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           component={EditItem}
           name="EditItem"
           options={{headerShown: false}}

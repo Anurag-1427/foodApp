@@ -8,29 +8,57 @@ import {
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import firestore from '@react-native-firebase/firestore';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = ({navigation}) => {
+  // All the states are here
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  useEffect(()=>{
-    firestore().collection('admin').add({email: 'admin@gmail.com', password: 'admin@1234',}).then(()=>{
-        console.log('admin added!')
-    })
-    }, [])
-//   const adminLogin = async () => {
-//     const users = await firestore().collection('admin').get();
-//     console.log(users.password + '  ' + password);
-//     if (
-//       email == users.docs[0]._data.email &&
-//       password == users.docs[0]._data.password
-//     ) {
-//       await AsyncStorage.setItem('EMAIL', email);
-//       navigation.navigate('Dashboard');
-//     } else {
-//       alert('wrong email/pass');
-//     }
+  // useEffect(() => {
+  //   // Below code is for only one time purpose and only related to send the admin and password to firebase\
+
+  //   // firestore()
+  //   //   .collection('admin')
+  //   //   .add({email: 'admin@gmail.com', password: 'admin@1234'})
+  //   //   .then(() => {
+  //   //     console.log('admin added!');
+  //   //   });
+
+  //   // Now for getting the data from firebase
+  //   adminLogin();
+  // }, []);
+
+  // const adminLogin = async () => {
+  //   const users = await firestore().collection('admin').get();
+  //   console.log(users.docs[0]._data); // It will give the object consists of email and password
+  //   if (email === users.email && password === users.password) {
+  //     navigation.navigate('Dashboard');
+  //   } else {
+  //     Alert.alert('Wrong email and password');
+  //   }
+  // };
+  const adminLogin = async () => {
+    const users = await firestore().collection('admin').get();
+    console.log(users.docs[0]._data); // It will give the object consists of email and password
+    // console.log(users.password + '  ' + password);
+
+    if (
+      email === users.docs[0]._data.email &&
+      password === users.docs[0]._data.password
+    ) {
+      navigation.navigate('Dashboard');
+    } else {
+      Alert.alert('Wrong email and password');
+    }
+    // if (
+    //   email == users.docs[0]._data.email &&
+    //   password == users.docs[0]._data.password
+    // ) {
+    //   await AsyncStorage.setItem('EMAIL', email);
+    //   navigation.navigate('Dashboard');
+    // } else {
+    //   Alert.alert('Wrong email and password');
   };
 
   return (
