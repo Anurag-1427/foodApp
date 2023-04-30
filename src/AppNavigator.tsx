@@ -5,7 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import Splash from './screens/Splash';
 import Login from './screens/Login';
 import Dashboard from './screens/Dashboard';
-// import EditItem from './screens/EditItem';
+import EditItem from './screens/EditItem';
 // import SelectLogin from './screens/user/SelectLogin';
 // import UserLogin from './screens/user/UserLogin';
 // import UserSignup from './screens/user/UserSignup';
@@ -35,12 +35,12 @@ const AppNavigator = () => {
           name="Dashboard"
           options={{headerShown: false}}
         />
-        {/* <Stack.Screen
+        <Stack.Screen
           component={EditItem}
           name="EditItem"
           options={{headerShown: false}}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           component={SelectLogin}
           name="SelectLogin"
           options={{headerShown: false}}
