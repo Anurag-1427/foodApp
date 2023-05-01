@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import firestore from '@react-native-firebase/firestore';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = ({navigation}) => {
   // All the states are here
@@ -43,24 +43,24 @@ const Login = ({navigation}) => {
     console.log(users.docs[0]._data); // It will give the object consists of email and password
     // console.log(users.password + '  ' + password);
 
+    // if (
+    //   email === users.docs[0]._data.email &&
+    //   password === users.docs[0]._data.password
+    // ) {
+    //   navigation.navigate('Dashboard');
+    // } else {
+    //   Alert.alert('Wrong email and password');
+    // }
     if (
-      email === users.docs[0]._data.email &&
-      password === users.docs[0]._data.password
+      email == users.docs[0]._data.email &&
+      password == users.docs[0]._data.password
     ) {
+      await AsyncStorage.setItem('EMAIL', email);
       navigation.navigate('Dashboard');
     } else {
       Alert.alert('Wrong email and password');
     }
-    // if (
-    //   email == users.docs[0]._data.email &&
-    //   password == users.docs[0]._data.password
-    // ) {
-    //   await AsyncStorage.setItem('EMAIL', email);
-    //   navigation.navigate('Dashboard');
-    // } else {
-    //   Alert.alert('Wrong email and password');
   };
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Admin Login</Text>

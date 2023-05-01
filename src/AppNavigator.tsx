@@ -6,10 +6,10 @@ import Splash from './screens/Splash';
 import Login from './screens/Login';
 import Dashboard from './screens/Dashboard';
 import EditItem from './screens/EditItem';
-// import SelectLogin from './screens/user/SelectLogin';
-// import UserLogin from './screens/user/UserLogin';
-// import UserSignup from './screens/user/UserSignup';
-// import Home from './screens/user/Home';
+import SelectLogin from './screens/user/SelectLogin';
+import UserLogin from './screens/user/UserLogin';
+import UserSignup from './screens/user/UserSignup';
+import Home from './screens/user/Home';
 // import Cart from './screens/user/Cart';
 // import Checkout from './screens/user/checkout/Checkout';
 // import Address from './screens/user/checkout/Address';
@@ -40,7 +40,7 @@ const AppNavigator = () => {
           name="EditItem"
           options={{headerShown: false}}
         />
-        {/* <Stack.Screen
+        <Stack.Screen
           component={SelectLogin}
           name="SelectLogin"
           options={{headerShown: false}}
@@ -60,7 +60,7 @@ const AppNavigator = () => {
           name="Home"
           options={{headerShown: false}}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           component={Cart}
           name="Cart"
           options={{headerShown: true}}
