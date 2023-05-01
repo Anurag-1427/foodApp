@@ -1,6 +1,6 @@
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
-import LanguageModal from '../common/LangaugeModal';
+import LanguageModal from '../common/LanguageModal';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {translation} from '../../utils';
 

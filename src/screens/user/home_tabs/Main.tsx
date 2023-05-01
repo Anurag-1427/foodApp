@@ -12,11 +12,15 @@ import firestore from '@react-native-firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
 let userId = '';
+
 const Main = () => {
+  // All the states are here
   const [items, setItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const navigation = useNavigation();
   const isFocused = useIsFocused();
+
+  // Effects are here
   useEffect(() => {
     // const subscriber =
     firestore()
@@ -44,6 +48,8 @@ const Main = () => {
   useEffect(() => {
     getCartItems();
   }, [isFocused]);
+
+  // All the functions are here
   const getCartItems = async () => {
     userId = await AsyncStorage.getItem('USERID');
     const user = await firestore().collection('users').doc(userId).get();

@@ -3,11 +3,17 @@ import React, {useEffect, useState} from 'react';
 import Header from '../../common/Header';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import firestore from '@react-native-firebase/firestore';
+
 const Orders = () => {
+  // All the states are here
   const [orderList, setOrderList] = useState([]);
+
+  // All the effects are here
   useEffect(() => {
     getOrders();
   }, []);
+
+  // All the functions are here
   const getOrders = async () => {
     const userId = await AsyncStorage.getItem('USERID');
     console.log(userId);
